@@ -5,7 +5,7 @@ tags: ["参加記"]
 draft: false
 ---
 
-{{< hatenaembed src="https://hatenablog-parts.com/embed?url=http://isucon.net/archives/52459414.html" >}}
+{{< hatenaEmbed src="http://isucon.net/archives/52459414.html" >}}
 
 
 ISUCON8の予選に、メルカリで一緒だった[@zaq1tomo](https://twitter.com/zaq1tomo)と[@inatonix](https://twitter.com/inatonix)と`zin-gonic`というチーム名で出場しました。  

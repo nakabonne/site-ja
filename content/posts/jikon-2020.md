@@ -20,7 +20,7 @@ draft: false
 
 以下ブログで綴ったとおり、去年の春、僕は少しだけ疲れていました。「これは自分のためになるのか？」「今日はどれほど有益だったのか？」という問いが常に頭に蔓延り、締切が定められてるものが1つでもあると何をしててもそのことが頭をよぎり、今やっぱあのこと考えたほうが良いかも？なんて考えてました。つまり、**今やってることの先にある利益に目線がいっていたわけです**。
 
-{{< hatenaembed src="https://hatenablog-parts.com/embed?url=https%3A%2F%2Fnakabonne.dev%2Fposts%2Fthings-that-could-drive-me-into-a-nervous-breakdown%2F" title="Things That Could Drive Me Into a Nervous Breakdown" >}}
+{{< hatenaEmbed src="https://nakabonne.dev/posts/things-that-could-drive-me-into-a-nervous-breakdown/" >}}
 
 また、web業界は発展途上であるが故に若くて経験が少なくてもでも目立てます。インターネットの力を使えば、いわば小手先の戦術的な動きをして「やってる感」を演出することが可能で、そこに何か物足りなさのようなものを感じていました。  
 手軽な労力で得られる充足感は逆に心を蝕むなと思っていた頃、英語学習法の一つである「只管朗読」という勉強法に出会いました。これは同時通訳の神様と呼ばれた故・國弘正雄先生が外国語学習の原点として提唱した学習法で、その内容は「ただひたすら声を出して読むのみ」です。これはただひたすら座るという意味の禅語、只管打坐をもじったものです。  

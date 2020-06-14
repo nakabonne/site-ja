@@ -61,7 +61,7 @@ draft: false
 # 良かった買物
 これに関しては、買ってよかったものというサービスにまとめてあるので割愛します。
 
-{{< hatenaembed src="https://hatenablog-parts.com/embed?url=https://katteyokatta.morishin.me/nakabonne" >}}
+{{< hatenaEmbed src="https://katteyokatta.morishin.me/nakabonne" >}}
 
 # 良かったPodcast
 #### [トータルテンボスのぬきさしならナイト](https://player.fm/series/24793)
@@ -177,9 +177,9 @@ ISUCONとは、<b>I</b>ikanjini <b>S</b>peed <b>U</b>p <b>CON</b>test（いい�
 出場した1392名、528組の中で30組のみが進める本戦に、学生枠という制度を使って進むことが出来ました。詳しくは以下ブログにまとめてあります。
 
 
-{{< hatenaembed src="https://hatenablog-parts.com/embed?url=https://ja.nakabonne.dev/isucon8-yosen" >}}
+{{< hatenaEmbed src="https://ja.nakabonne.dev/isucon8-yosen" >}}
 
-{{< hatenaembed src="https://hatenablog-parts.com/embed?url=https://ja.nakabonne.dev/isucon8-honsen" >}}
+{{< hatenaEmbed src="https://ja.nakabonne.dev/isucon8-honsen" >}}
 
 
 
@@ -188,14 +188,14 @@ ISUCONとは、<b>I</b>ikanjini <b>S</b>peed <b>U</b>p <b>CON</b>test（いい�
 もっと多くの人からフィードバックを受けたいという思いと英語学習を兼ねて、自分の技術ブログを英訳し始めました。これがかなり良く、定期的に英文を書く習慣がつくと、もっと細かいニュアンスを伝えたいという欲求が生まれるため、普段読む英文を見る目も変わってきました。
 
 
-{{< hatenaembed src="https://hatenablog-parts.com/embed?url=https://nakabonne.dev" >}}
+{{< hatenaEmbed src="https://nakabonne.dev" >}}
 
 
 #### 技術ブログがちょいバズり
 
 今までオープンな場で評価を受けたことがなかったので、アウトプットが間違っていないことが確認できて安心しました。
 
-{{< hatenaembed src="https://hatenablog-parts.com/embed?url=http://nakawatch.hatenablog.com/entry/2018/07/11/181453" >}}
+{{< hatenaEmbed src="http://nakawatch.hatenablog.com/entry/2018/07/11/181453" >}}
 
 #### 初LT
 
@@ -225,7 +225,7 @@ ISUCONとは、<b>I</b>ikanjini <b>S</b>peed <b>U</b>p <b>CON</b>test（いい�
 
 # 良かった2018年
 
-{{< hatenaembed src="https://hatenablog-parts.com/embed?url=http://nakawatch.hatenablog.com/entry/2018/01/05/164210" >}}
+{{< hatenaEmbed src="http://nakawatch.hatenablog.com/entry/2018/01/05/164210" >}}
 持ちつ持たれつを宣言して始まった2018年は、マンパワーに支えられて幕を閉じます。  
 「あれってまだ今年なの？」と思うことが多々あるくらい濃い一年でした。来年もよろしくお願いします。
 
