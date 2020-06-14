@@ -30,21 +30,20 @@
     
  
     
-    <link rel="alternate" type="application/rss+xml" href="https://ja.nakabonne.dev/tags/index.xml" title="中尾 涼" />
-    
     
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://ja.nakabonne.dev/img/icon.png"/>
 
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content="雑記"/>
+<meta name="twitter:title" content="ISUCON8予選は学生枠6位で本戦出場が決まりました"/>
+<meta name="twitter:description" content="ISUCON8の予選に、メルカリで一緒だった@zaq1tomoと@inatonixとzin-gonicというチーム名で出場しました。"/>
 
-    <meta property="og:title" content="Tags" />
-<meta property="og:description" content="雑記" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://ja.nakabonne.dev/tags/" />
+    <meta property="og:title" content="ISUCON8予選は学生枠6位で本戦出場が決まりました" />
+<meta property="og:description" content="ISUCON8の予選に、メルカリで一緒だった@zaq1tomoと@inatonixとzin-gonicというチーム名で出場しました。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ja.nakabonne.dev/posts/isucon8-yosen/" />
 <meta property="og:image" content="https://ja.nakabonne.dev/img/icon.png"/>
-<meta property="og:updated_time" content="2020-01-03T00:00:00+00:00" /><meta property="og:site_name" content="中尾 涼" />
+<meta property="article:published_time" content="2018-09-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-09-17T00:00:00+00:00" /><meta property="og:site_name" content="中尾 涼" />
 
 </head>
 
@@ -167,16 +166,123 @@
         <div id="content" class="content-container">
         
 
-<h1>Tags</h1>
-<ul>
+<h1 class="post-title">ISUCON8予選は学生枠6位で本戦出場が決まりました</h1>
     
-        <li><a href="https://ja.nakabonne.dev/tags/%E5%8F%82%E5%8A%A0%E8%A8%98/">参加記</a> 2</li>
+    <time>September 17, 2018</time>
     
-        <li><a href="https://ja.nakabonne.dev/tags/%E6%8A%B1%E8%B2%A0/">抱負</a> 2</li>
-    
-</ul>
+    <div>
+        <p>
+        <p>
+  <iframe src=https://hatenablog-parts.com/embed?url&#61;http://isucon.net/archives/52459414.html title= class="embed-card embed-webcard" scrolling="no" frameborder="0" style="display: block; width: 100%; height: 155px; max-width: 500px; margin: 10px 0px;"></iframe>
+</p>
 
-<div class="page-footer"></div>
+<p>ISUCON8の予選に、メルカリで一緒だった<a href="https://twitter.com/zaq1tomo">@zaq1tomo</a>と<a href="https://twitter.com/inatonix">@inatonix</a>と<code>zin-gonic</code>というチーム名で出場しました。<br>
+結果は学生枠6位だったので、やったこととかまとめます。</p>
+<h1 id="事前準備">事前準備</h1>
+<ul>
+<li>二度のisucon合宿を行った（どちらも環境構築で頓挫）</li>
+<li>何回か集まってisucon7の過去問練習</li>
+<li>ishoconという<a href="https://scouty.co.jp/">株式会社scouty</a>さん主催のコンテストで練習した</li>
+<li>hidakkathonという<a href="https://www.cyberagent.co.jp/">株式会社会社サイバーエージェント</a>さん主催のコンテストで練習した</li>
+<li>前日に当日と同じ要領でhidakkathonの問題をみんなでやった</li>
+</ul>
+<p>とまあ初出場ということもあり結構ちゃんと準備して、何も言い訳できない状況だったのでとりあえず通過できてよかったです</p>
+<h1 id="やったこと">やったこと</h1>
+<p>チューニング対象は、イベントの座席予約アプリでした。<br>
+言語は、3人の技術スタック的にGo一択でした。</p>
+<p><a href="https://github.com/nakabonne/isucon8-qualify"><img src="https://gh-card.dev/repos/nakabonne/isucon8-qualify.svg?fullname=" alt="nakabonne/isucon8-qualify - GitHub"></a></p>
+<p>@nakabonne: インフラ担当<br>
+@zaq1tomo: アプリ担当<br>
+@inatonix: アプリ担当</p>
+<h3 id="序盤">序盤</h3>
+<h5 id="nakabonne">@nakabonne</h5>
+<ul>
+<li>ssh公開鍵登録</li>
+<li><a href="https://github.com/nakabonne/dotfiles-ubuntu">dotfile</a>をclone</li>
+<li>ベンチ走らせて<a href="https://github.com/hishamhm/htop">htop</a>でリソース確認</li>
+<li><a href="https://github.com/nakabonne/isucon8-qualify/blob/master/scripts/restart.sh">リスタートスクリプト</a>の準備</li>
+<li><a href="https://github.com/nakabonne/isucon8-qualify/commit/916a01883ebe72977cd8adb9cd66de98aa0ed38a">スロークエリログ</a>を仕込む</li>
+<li>再起動に備え、自動起動設定をする</li>
+<li>プロファイルングツール<a href="https://github.com/tkuchiki/alp">alp</a>を仕込む</li>
+<li><a href="https://github.com/nakabonne/isucon8-qualify/blob/master/scripts/rotate_alplog.sh">ログローテートスクリプト</a>を仕込む</li>
+<li>alpに渡すためにh2oのアクセスログを<a href="https://github.com/nakabonne/isucon8-qualify/commit/1b30bd1b9d4b80158882ccceffa898cbefd2bd5e">LTSV形式にする</a></li>
+</ul>
+<p>リバースプロキシは完全にnginxのつもりでいたので、h2oアクセスログをalpがパースできる形式で出力するのに結構時間かかってしまって、大迷惑かけてしまいました。<br>
+本戦では爆速でやりたいです。<br>
+ちなみに今回はnginxに差し替えてる方が結構いたので、インフラ担当としてその辺のトレードオフも見積もれるようになりたいです。</p>
+<h5 id="inatonix-zaq1tomo">@inatonix, @zaq1tomo</h5>
+<ul>
+<li>マニュアル読む</li>
+<li>ひたすらコード読む</li>
+<li><a href="https://golang.org/pkg/net/http/pprof/">pprof</a>を仕込んでボトルネック探す</li>
+<li>スロークエリログ見ながらボトルネック探す</li>
+</ul>
+<h4 id="方針決め">方針決め</h4>
+<h5 id="リソース">リソース</h5>
+<figure>
+    <img src="/img/isucon8-yosen-htop.png" width="100%" height="auto"/> 
+</figure>
+
+<p>弱者の戦い方として、無理に複数台構成はしないと最初から決めていたため、ゴリゴリインメモリキャッシュを使おうと話していました。<br>
+実行時にCPU使用率が100%に張り付くので、なるべくredis等の別プロセスは立ち上げたくないと感じたので、キャッシュするならGoプロセス管轄内のメモリに乗せようとなりました。<br>
+ただ、mariadbが大分CPU食っているのでdbだけ別インスタンスに移したい気持ちはありました。</p>
+<h4 id="スロークエリ">スロークエリ</h4>
+<figure>
+    <img src="/img/isucon8-yosen-slow-query.png" width="100%" height="auto"/> 
+</figure>
+
+<p>reservationsテーブルから全座席ごとにselectしてるクエリが37万回呼ばれていて、これを解消しない限り次に進まないことがすぐに分かりました。<br>
+今回はボトルネックが明白だったため、学生でも迷わずに進める良問でした。</p>
+<h4 id="アクセスログ">アクセスログ</h4>
+<figure>
+    <img src="/img/isucon8-yosen-access-log.png" width="100%" height="auto"/> 
+</figure>
+
+<p>一番上の <code>/api/users/:id</code> で、先程の重いクエリが流れていたため、平均9秒かかっていました。その他レスポンスタイム上位のエンドポイントはほとんど同じクエリがボトルになっていました。</p>
+<h3 id="中盤">中盤</h3>
+<h5 id="nakabonne-1">@nakabonne</h5>
+<ul>
+<li>二人の修正が競合しないようにひたすらデプロイ</li>
+<li><code>reservation</code>テーブルの<code>user_id</code>とかにindex張ってみる → 意味なし</li>
+<li>h2oでロードバランシングしてみる → 出来なかった</li>
+</ul>
+<p><code>reservations</code>テーブルには<code>event_id</code>と<code>canceled_at IS NULL</code>にマルチカラムインデックス張るのが正解だったっぽいです。<br>
+単体テーブルへのクエリならまだいいのですが、内部結合となると実行計画が全く理解できず死亡しました。</p>
+<h5 id="inatonix-zaq1tomo-1">@inatonix, @zaq1tomo</h5>
+<ul>
+<li>それぞれ別のアプローチでgetEventsクエリのN+1解消に取り組む
+<ul>
+<li>@inatonix: Goプロセス内インメモリキャッシュ</li>
+<li>@zaq1tomo: クエリ変えてクエリ数減らす</li>
+</ul>
+</li>
+</ul>
+<p>僕のアクセスログ解析が遅れたせいもあり、全くスコアが上がらず完全にお通夜モードになっていた15時頃（だったかな）に、@zaq1timoの<a href="https://github.com/nakabonne/isucon8-qualify/pull/4">N+1修正</a>が火を吹き1000点→10000点と10倍になりました。<br>
+<code>/api/users/:id</code>の平均レスポンスタイムも9秒→1秒まで解消していました。</p>
+<h3 id="終盤">終盤</h3>
+<p>@zaq1tomoが合計料金をSUMするクエリを<a href="https://github.com/nakabonne/isucon8-qualify/pull/5">チューニング</a>してくれてちょっとスコアが上がり、諸々のログを吐かないようにしたら13000点を超えるようになりました。<br>
+ただ、ランダムにfailしたりしてハラハラしていました。<br>
+競技30分前に再起動し最終的に14000点を超えたところでコードフリーズし、お片付けを始めました。</p>
+<h1 id="感想">感想</h1>
+<p>1392名参加している大会で、障害等を何も起こさなかった運営の方々がかっこよすぎました。<br>
+今回は各チームごとにベンチマークを用意してくれた（構成的にするしかなかった）Conohaさんにも感謝の念が溢れます。<br>
+本戦勝つぞー</p>
+
+        </p>
+    </div>
+    
+
+    
+
+    <div class="page-footer">
+        
+        <hr class="footer-divider">
+        
+            <a class="tag" href="/tags/%E5%8F%82%E5%8A%A0%E8%A8%98">#参加記</a>
+        
+      
+    </div>
+
 
         
 

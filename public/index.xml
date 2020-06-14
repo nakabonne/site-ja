@@ -21,12 +21,39 @@
     </item>
     
     <item>
-      <title>About</title>
+      <title>2019年は「柔よく剛を制す」</title>
+      <link>https://ja.nakabonne.dev/posts/hofu-2019/</link>
+      <pubDate>Wed, 06 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ja.nakabonne.dev/posts/hofu-2019/</guid>
+      <description>2019年ももう12分の1が終わってしまったので、ひっそりとメモ程度に記す。</description>
+    </item>
+    
+    <item>
+      <title>isucon8本戦で惨敗したからせめて良いブログを書く</title>
+      <link>https://ja.nakabonne.dev/posts/isucon8-honsen/</link>
+      <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ja.nakabonne.dev/posts/isucon8-honsen/</guid>
+      <description>ISUCON8の本戦に、メルカリで一緒だった@zaq1tomoと@inatonixとzin-gonicというチーム名で出場しました。</description>
+    </item>
+    
+    <item>
+      <title>ISUCON8予選は学生枠6位で本戦出場が決まりました</title>
+      <link>https://ja.nakabonne.dev/posts/isucon8-yosen/</link>
+      <pubDate>Mon, 17 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ja.nakabonne.dev/posts/isucon8-yosen/</guid>
+      <description>ISUCON8の予選に、メルカリで一緒だった@zaq1tomoと@inatonixとzin-gonicというチーム名で出場しました。</description>
+    </item>
+    
+    <item>
+      <title>このブログについて</title>
       <link>https://ja.nakabonne.dev/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ja.nakabonne.dev/about/</guid>
-      <description>Hi there!</description>
+      <description>About me: https://nakabonne.</description>
     </item>
     
   </channel>
