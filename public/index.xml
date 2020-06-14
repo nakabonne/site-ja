@@ -30,6 +30,15 @@
     </item>
     
     <item>
+      <title>モジュールの深さについて</title>
+      <link>https://ja.nakabonne.dev/posts/module-depth/</link>
+      <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://ja.nakabonne.dev/posts/module-depth/</guid>
+      <description>Click here for English version この記事は、スタンフォード大学のJohn Ousterhout教授の著書「A Philosophy of Software Design」にて説明されているdeep moduleという概念について、本人の許可を得てまとめたものです。ただし本書の内容を詳しく紹介するのではなく、主に私の考察を書き綴ったものです。</description>
+    </item>
+    
+    <item>
       <title>isucon8本戦で惨敗したからせめて良いブログを書く</title>
       <link>https://ja.nakabonne.dev/posts/isucon8-honsen/</link>
       <pubDate>Sun, 21 Oct 2018 00:00:00 +0000</pubDate>

@@ -25,7 +25,6 @@ summaryLength = 0 # Configure how long the post summary should be on the homepag
   github = "https://github.com/nakabonne"
 	linkedin = "https://www.linkedin.com/in/nakabonne"
   twitter = "https://twitter.com/nakabonne"
-  instagram = "https://www.instagram.com/nakabonne"
   facebook = "https://www.facebook.com/nakabonne"
   # For Twitter card and OGP
   title = "中尾 涼"
@@ -48,5 +47,5 @@ summaryLength = 0 # Configure how long the post summary should be on the homepag
 [[menu.main]]
 	identifier = "en"
 	name = "EN"
-	url = "https://nakabonne.dev/"
+	url = "https://nakabonne.dev"
 	weight = 3
