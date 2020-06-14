@@ -3,6 +3,7 @@
 <html lang="ja">
     
 <head>
+	<meta name="generator" content="Hugo 0.68.3" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,20 +31,21 @@
     
  
     
+    <link rel="alternate" type="application/rss+xml" href="https://ja.nakabonne.dev/index.xml" title="中尾 涼" />
+    
     
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://ja.nakabonne.dev/img/icon.png"/>
 
-<meta name="twitter:title" content="isucon8本戦で惨敗したからせめて良いブログを書く"/>
-<meta name="twitter:description" content="ISUCON8の本戦に、メルカリで一緒だった"/>
+<meta name="twitter:title" content="中尾 涼"/>
+<meta name="twitter:description" content="雑記"/>
 
-    <meta property="og:title" content="isucon8本戦で惨敗したからせめて良いブログを書く" />
-<meta property="og:description" content="ISUCON8の本戦に、メルカリで一緒だった" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://ja.nakabonne.dev/posts/isucon8-honsen/" />
+    <meta property="og:title" content="中尾 涼" />
+<meta property="og:description" content="雑記" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ja.nakabonne.dev/" />
 <meta property="og:image" content="https://ja.nakabonne.dev/img/icon.png"/>
-<meta property="article:published_time" content="2018-10-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-10-21T00:00:00+00:00" /><meta property="og:site_name" content="中尾 涼" />
+<meta property="og:updated_time" content="2020-01-03T00:00:00+00:00" /><meta property="og:site_name" content="中尾 涼" />
 
 </head>
 
@@ -159,151 +161,60 @@
 
         <div id="content" class="content-container">
         
+<div class = "article-content">
+        
+        <div class="description">
+            <p>雑記</p>
+        </div>
+        
+        
+        
+        
+        <article>
+            <h2>
+                <a href="https://ja.nakabonne.dev/posts/isucon8-yosen/">
+                    ISUCON8予選は学生枠6位で本戦出場が決まりました
+                </a>
+            </h2>
+            <div>
+                <p>ISUCON8の予選に、メルカリで一緒だった@zaq1tomoと@inatonixとzin-gonicというチーム名で出場しました。</p>
+                
+            </div>
+            <div class="post-footer">
+            <time>September 17, 2018</time>
 
-<h1 class="post-title">isucon8本戦で惨敗したからせめて良いブログを書く</h1>
-    
-    <time>October 21, 2018</time>
-    
-    <div>
-        <p>
-        <p>ISUCON8の本戦に、メルカリで一緒だった<a href="https://twitter.com/zaq1tomo">@zaq1tomo</a>と<a href="https://twitter.com/inatonix">@inatonix</a>と<code>zin-gonic</code>というチーム名で出場しました。<br>
-結果は学生9位、全体で19位だったので、やったこととかまとめます。<br>
-予選エントリはこちらです↓</p>
-<p>
-  <iframe src=https://hatenablog-parts.com/embed?url&#61;https://ja.nakabonne.dev/isucon8-yosen title= class="embed-card embed-webcard" scrolling="no" frameborder="0" style="display: block; width: 100%; height: 155px; max-width: 500px; margin: 10px 0px;"></iframe>
-</p>
-
-<h1 id="やったこと">やったこと</h1>
-<p>チューニング対象は、isucoinという取引所アプリでした。<br>
-言語は予選と同じGoです。</p>
-<p><a href="https://github.com/nakabonne/isucon8-final"><img src="https://gh-card.dev/repos/nakabonne/isucon8-final.svg?fullname=" alt="nakabonne/isucon8-final - GitHub"></a></p>
-<p>担当も予選と同じです。</p>
-<p>@nakabonne: インフラ担当<br>
-@zaq1tomo: アプリ担当<br>
-@inatonix: アプリ担当</p>
-<h3 id="序盤">序盤</h3>
-<h5 id="nakabonne">@nakabonne</h5>
-<p>序盤は主にプロファイリングの準備です。</p>
-<ul>
-<li>ssh公開鍵登録</li>
-<li><a href="https://github.com/nakabonne/dotfiles-ubuntu">dotfile</a>をclone</li>
-<li>ベンチ走らせて<a href="https://github.com/hishamhm/htop">htop</a>でリソース確認</li>
-<li><a href="https://github.com/nakabonne/isucon8-final/blob/master/scripts/restart.sh">デプロイスクリプト</a>の準備</li>
-<li>スロークエリログを仕込む</li>
-<li>アクセスログのプロファイルングツール<a href="https://github.com/tkuchiki/alp">alp</a>を仕込む</li>
-<li><a href="https://github.com/nakabonne/isucon8-final/blob/master/scripts/rotate_alplog.sh">ログローテートスクリプト</a>を仕込む</li>
-<li>nginxのアクセスログを<a href="https://github.com/nakabonne/isucon8-final/commit/8c65354ed3f7bdd5bf309117ab469202dce83012">LTSV形式</a>に</li>
-</ul>
-<p>今回はdockerでデーモン化されていたため、パフォーマンスが少し気になる上にプロファイリングが少し面倒でした。<br>
-当初はdockerを剥がしてsystemdに乗せ換えようとしましたが、工数に対するインパクトが見込めず一旦後回しにしました。<br>
-また、nginxの<a href="https://github.com/nginxinc/docker-nginx/blob/master/stable/alpine/Dockerfile#L135">公式イメージ</a>を見ると標準出力をdocker logsに流しており、アクセスログがうまく拾えず若干詰まりました。</p>
-<h5 id="inatonix-zaq1tomo">@inatonix, @zaq1tomo</h5>
-<ul>
-<li>マニュアルとコード読んで仕様把握</li>
-<li>pprofでプロファイリング</li>
-</ul>
-<h4 id="方針決め">方針決め</h4>
-<p>各プロファイリング結果毎に見ていきます。</p>
-<h5 id="リソース">リソース</h5>
-<figure>
-    <img src="/img/isucon8-htop.png" width="100%" height="auto"/> 
-</figure>
-
-<p>実行時にCPU使用率は100%に張り付き、半分以上はmysqlが食っていました。<br>
-メモリもギリギリで、こちらも同じく大半はmysqlのキャッシュによるものでした。<br>
-この時点で早いうちにDBを外に切り出すことは決めました。</p>
-<h5 id="スロークエリ">スロークエリ</h5>
-<figure>
-    <img src="/img/slow-query.png" width="100%" height="auto"/> 
-</figure>
-
-<p>全tradeをソートしてから取得するクエリがまず第一関門っぽかったので、初動は決まりました。<br>
-二つ目もクエリ数減らせないか調査の必要がありそうだと話した気がします。</p>
-<h5 id="アクセスログ">アクセスログ</h5>
-<figure>
-    <img src="/img/access-log.png" width="100%" height="auto"/> 
-</figure>
-
-<p><code>POST /orders</code> <code>GET /info</code> から見ていく必要があるのは一目瞭然で、エンドポイントが少ないことから一筋縄ではいかない匂いがプンプンでした。</p>
-<h3 id="中盤">中盤</h3>
-<h5 id="nakabonne-1">@nakabonne</h5>
-<ul>
-<li>mysqlを別サーバーに移行</li>
-<li>nginx基本チューニング</li>
-<li>このクエリやばそうとかつぶやく</li>
-</ul>
-<figure>
-    <img src="/img/isucon8-htop2.png" width="100%" height="auto"/> 
-</figure>
-
-<p>mysqlを切り出し、サーバー1をapp+nginxのみの構成にしたためCPUに半分くらい空きが出来ました。<br>
-CPUがボトルになるまではしばらくappは一台で動かそうとなりました。</p>
-<h5 id="inatonix-zaq1tomo-1">@inatonix, @zaq1tomo</h5>
-<ul>
-<li>latest tradeから取得するフィールドをidのみにする<a href="https://github.com/nakabonne/isucon8-final/pull/2">修正</a></li>
-</ul>
-<p>この@zaq1tomoの修正で<em><strong>500点→3200点</strong></em>に伸びました。</p>
-<ul>
-<li>trade取得時にLIMITかける<a href="https://github.com/nakabonne/isucon8-final/pull/3">修正</a></li>
-</ul>
-<h6 id="つかの間の1位">つかの間の1位</h6>
-<p>この修正で<em><strong>5136点</strong></em>まで伸びました。そしてこの瞬間、<b><span style="color: #1464b3">我々zin-gonicは1位</span></b>に躍り出ました。<br>
-ただ、この時を最後に我々が笑顔になることはありませんでした。。</p>
-<figure>
-    <img src="/img/isucon8-ranking.png" width="100%" height="auto"/> 
-</figure>
-
-<h3 id="終盤">終盤</h3>
-<h5 id="nakabonne-2">@nakabonne</h5>
-<ul>
-<li>shareボタンを有効に、、</li>
-</ul>
-<p>CPUに余裕が出来たところで、リソースを使い切りたいと思っていたところ、@inatonixが怪しいものを見つけました。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// TODO: trueにするとシェアボタンが有効になるが、アクセスが増えてヤバイので一旦falseにしておく
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">res</span>[<span style="color:#e6db74">&#34;enable_share&#34;</span>] = <span style="color:#66d9ef">false</span>
-</code></pre></div><p>どうやらシェアボタンを有効にすると取引成立時にシェアされてユーザーが流れ込み、一気に負荷があがるそうで、これだ！と有効にしました。<br>
-が、<code>GET /info</code> でタイムアウトが頻発。<br>
-DBサーバーを見てみるとCPUが使い切られていたので、ロックされてるのかな？と思いつつとりあえずこれはまだ早いと判断して、そっとブランチを切り替えました。<br>
-講評を聞く限りここで負荷を上げても耐えられるようにすることが鍵だったらしいです。</p>
-<ul>
-<li>悪あがき</li>
-</ul>
-<figure>
-    <img src="/img/isucon8-waruagaki.png" width="100%" height="auto"/> 
-</figure>
-
-<p>このブランチ量を見れば悪あがきをしていたことが分かります。<br>
-もちろん何も意味をなしていません。</p>
-<h5 id="inatonix-zaq1tomo-2">@inatonix, @zaq1tomo</h5>
-<ul>
-<li><code>POST /orders</code> で呼ばれる <code>AddOrders()</code> というメソッドをなんとかしようと奮闘</li>
-<li>shareボタンを有効にしたときの<code>GET /Info</code>を直そうと奮闘</li>
-</ul>
-<p>oh&hellip;</p>
-<h3 id="感想">感想</h3>
-<p>問題作成していただいたDeNAさん、カヤックさん、主催のLINEさん、サーバー提供していただいたConoHaさん、本当にありがとうございました。<br>
-今回の優勝者は学生であり、それを讃えている皆さんを見て、改めて最高の業界に来てしまったと感じました。<br>
-もしisucon9があるならば、来年も学生枠使えるので（もはやそんな枠があるかは不明）出場したいと思います。</p>
-<figure>
-    <img src="/img/isucon8-cards.jpg" width="100%" height="auto"/> 
-</figure>
-
-
-        </p>
+            
+            
+                
+                    <a class="tag" href="/tags/%E5%8F%82%E5%8A%A0%E8%A8%98">#参加記</a>
+                
+            
+            </div> 
+           
+        </article>
+        
     </div>
-    
-
-    
-
-    <div class="page-footer">
         
-        <hr class="footer-divider">
+        <div class="paginator">
         
-            <a class="tag" href="/tags/%E5%8F%82%E5%8A%A0%E8%A8%98">#参加記</a>
         
-      
+        <p>Page 2 of 2</p>
+        <div class="paginator-group">
+            
+            <a class="color-link" href="/">
+                    <svg width="13px" height="9px" viewBox="0 0 13 9" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+                        <g class="color-arrow" fill="#63BDA2" fill-rule="nonzero">
+                            <polygon id="Path" points="1.75929935 4.50000282 5.3292523 7.62371165 4.6707477 8.37628835 0.240700645 4.49999718 4.67081049 0.623709205 5.32930951 1.37629079"></polygon>
+                            <polygon id="Path" points="13 4 13 5 1 5 1 4"></polygon>
+                        </g>
+                </svg>  
+                Newer          
+            </a>
+            
+            
+        </div>
+        
     </div>
-
 
         
 

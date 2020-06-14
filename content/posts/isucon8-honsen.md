@@ -11,7 +11,7 @@ ISUCON8の本戦に、メルカリで一緒だった[@zaq1tomo](https://twitter.
 予選エントリはこちらです↓
 
 
-{{< hatenaembed src="https://hatenablog-parts.com/embed?url=https://ja.nakabonne.dev/isucon8-yosen.md" title="" >}}
+{{< hatenaembed src="https://hatenablog-parts.com/embed?url=https://ja.nakabonne.dev/isucon8-yosen" >}}
 
 # やったこと
 
