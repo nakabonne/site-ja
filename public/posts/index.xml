@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on 中尾 涼</title>
+    <link>https://ja.nakabonne.dev/posts/</link>
+    <description>Recent content in Posts on 中尾 涼</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Fri, 03 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ja.nakabonne.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2020年も引き続き「而今」</title>
+      <link>https://ja.nakabonne.dev/posts/jikon-2020/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ja.nakabonne.dev/posts/jikon-2020/</guid>
+      <description>22歳になりました。今年（というか当分）のモットーは「而今」です。過去未来に囚われず、今この瞬間を淡々と生きます。 pic.</description>
+    </item>
+    
+  </channel>
+</rss>
