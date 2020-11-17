@@ -8,7 +8,7 @@ enableRobotsTXT = true
 paginate = 5 # Set the number of posts to show before overflowing to the next page.
 summaryLength = 0 # Configure how long the post summary should be on the homepage.
 
-#googleAnalytics = "UA-162006077-1"
+googleAnalytics = "G-Q58DWC00TP"
 
 [taxonomies]
   tag = "tags"
