@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 中尾 涼</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 03 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Nov 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ja.nakabonne.dev/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Goプロセスのランタイム統計を可視化する</title>
+      <link>https://ja.nakabonne.dev/posts/gosivy/</link>
+      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ja.nakabonne.dev/posts/gosivy/</guid>
+      <description>本記事は Go 2 Advent Calendar 2020 の1日目の記事です。</description>
+    </item>
     
     <item>
       <title>2020年も引き続き「而今」</title>

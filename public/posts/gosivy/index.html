@@ -30,8 +30,6 @@
     
  
     
-    <link rel="alternate" type="application/rss+xml" href="https://ja.nakabonne.dev/tags/index.xml" title="中尾 涼" />
-    
     
 <script type="application/javascript">
 var doNotTrack = false;
@@ -49,15 +47,16 @@ if (!doNotTrack) {
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://ja.nakabonne.dev/img/icon.png"/>
 
-<meta name="twitter:title" content="Tags"/>
-<meta name="twitter:description" content="雑記"/>
+<meta name="twitter:title" content="Goプロセスのランタイム統計を可視化する"/>
+<meta name="twitter:description" content="本記事は Go 2 Advent Calendar 2020 の1日目の記事です。"/>
 
-    <meta property="og:title" content="Tags" />
-<meta property="og:description" content="雑記" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://ja.nakabonne.dev/tags/" />
+    <meta property="og:title" content="Goプロセスのランタイム統計を可視化する" />
+<meta property="og:description" content="本記事は Go 2 Advent Calendar 2020 の1日目の記事です。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ja.nakabonne.dev/posts/gosivy/" />
 <meta property="og:image" content="https://ja.nakabonne.dev/img/icon.png"/>
-<meta property="og:updated_time" content="2020-11-01T00:00:00+00:00" /><meta property="og:site_name" content="中尾 涼" />
+<meta property="article:published_time" content="2020-11-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-11-01T00:00:00+00:00" /><meta property="og:site_name" content="中尾 涼" />
 
 </head>
 
@@ -174,20 +173,103 @@ if (!doNotTrack) {
         <div id="content" class="content-container">
         
 
-<h1>Tags</h1>
-<ul>
+<h1 class="post-title">Goプロセスのランタイム統計を可視化する</h1>
     
-        <li><a href="https://ja.nakabonne.dev/tags/go/">Go</a> 1</li>
+    <time>November 1, 2020</time>
     
-        <li><a href="https://ja.nakabonne.dev/tags/%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E8%A8%AD%E8%A8%88/">ソフトウェア設計</a> 1</li>
-    
-        <li><a href="https://ja.nakabonne.dev/tags/%E5%8F%82%E5%8A%A0%E8%A8%98/">参加記</a> 2</li>
-    
-        <li><a href="https://ja.nakabonne.dev/tags/%E6%8A%B1%E8%B2%A0/">抱負</a> 2</li>
-    
-</ul>
+    <div>
+        <p>
+        <p>本記事は <a href="https://qiita.com/advent-calendar/2020/go2">Go 2 Advent Calendar 2020</a> の1日目の記事です。</p>
+<p>Goにはpprofをはじめとしたプロファイリングエコシステムが揃っています。しかしリソース使用量のトレンドをリアルタイムで監視したいだけのケースで手軽に扱えるツールが見つからなかったので、<a href="https://github.com/nakabonne/gosivy">gosivy</a>というシンプルなTUIツールを作りました。</p>
+<figure>
+    <img src="/img/gosivy-demo.gif" width="100%" height="auto"/> 
+</figure>
 
-<div class="page-footer"></div>
+<p>見つからなかったと書きましたが、正確には<a href="https://github.com/arl/statsviz">statsviz</a>というWebベースの可視化ツールが<a href="https://github.com/arl">arl</a>氏により先月公開されています。
+非常に優れたツールで、対象アプリケーションに数行のコードを追加するだけでチャートを描画することができます。
+仕組みがシンプルでUIも見やすくてとても良ツールなのですが、何点か気になる点がありました：</p>
+<ul>
+<li>チャートを閲覧してるかどうかに関わらず、対象プロセスで毎秒Stop the Worldを発生させてランタイム統計を計算している</li>
+<li>ランタイム統計の計算だけでなく可視化も対象のプロセス内で行っている</li>
+<li>表示する情報が固定の割に情報量が多すぎる</li>
+<li>WebベースのUIなのでブラウザが必須</li>
+</ul>
+<p>総じて、メトリクスを取りたい対象プロセスの負担が少し大きすぎるなと感じていました。</p>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">1秒ごとのcpu使用率とっていると、案の定一番負荷が高いのは監視が動くタイミングだったりするわけで</p>&mdash; mackerel-plugin-kazeburo (@kazeburo) <a href="https://twitter.com/kazeburo/status/1322084832831184896?ref_src=twsrc%5Etfw">October 30, 2020</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>そこでstatsvizの手軽さを残しつつ、監視対象プロセスの負担をなるべく減らしたツールを作ることにしました。</p>
+<h2 id="使い方">使い方</h2>
+<p>基本的な使い方をご紹介します。</p>
+<p>まずはREADMEに従って、お好みの方法で <code>gosivy</code> バイナリをインストールします。</p>
+<p><a href="https://github.com/nakabonne/gosivy"><img src="https://gh-card.dev/repos/nakabonne/gosivy.svg?fullname=" alt="nakabonne/gosivy - GitHub"></a></p>
+<p>次にメトリクスを可視化したいアプリケーションに <code>github.com/nakabonne/gosivy/agent</code> をimportし、以下のようにエージェントを起動するための処理を追加します。保存したらそのアプリケーションを実行してください。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;github.com/nakabonne/gosivy/agent&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">agent</span>.<span style="color:#a6e22e">Listen</span>(<span style="color:#a6e22e">agent</span>.<span style="color:#a6e22e">Options</span>{}); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		panic(<span style="color:#a6e22e">err</span>)
+	}
+	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">agent</span>.<span style="color:#a6e22e">Close</span>()
+}
+</code></pre></div><p>最後にgosivyプロセスを起動すれば、対象アプリケーションのメトリクスがリアルタイムで描画されます。gosivyプロセスは監視対象プロセスと同じホスト・ユーザーで実行する必要があります。</p>
+<pre><code>$ gosivy
+</code></pre><p>しれっと引数無しでの実行を紹介しましたが、gosivyはエージェントが実行されているプロセスを自動で検出し、最初に見つけたプロセスを引数として実行します。そのため、エージェントが複数実行されている場合はまず <code>-l</code> オプションでPIDを確認します。</p>
+<pre><code class="language-console" data-lang="console">$ gosivy -l
+PID   Exec Path
+15788 foo  /path/to/foo
+16841 bar  /path/to/bar
+</code></pre><p>そしてそれを引数として与える必要があります。</p>
+<pre><code>$ gosivy 15788
+</code></pre><h4 id="リモートモード">リモートモード</h4>
+<p>対象プロセスのアドレスさえ分かれば、簡単に別ホストから監視することができます。</p>
+<p>エージェントがリッスンするアドレスを指定します。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;github.com/nakabonne/gosivy/agent&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">agent</span>.<span style="color:#a6e22e">Listen</span>(<span style="color:#a6e22e">agent</span>.<span style="color:#a6e22e">Options</span>{
+		<span style="color:#a6e22e">Addr</span>: <span style="color:#e6db74">&#34;:9090&#34;</span>,
+	})
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		panic(<span style="color:#a6e22e">err</span>)
+	}
+	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">agent</span>.<span style="color:#a6e22e">Close</span>()
+}
+</code></pre></div><p>gosivyプロセスからアクセス可能なアドレスを引数として与えると、ローカルモードと同じように描画が始まるはずです。</p>
+<pre><code>$ gosivy host.xz:9090
+</code></pre><h2 id="可視化までの流れ">可視化までの流れ</h2>
+<p>全体的なアーキテクチャは<a href="https://github.com/google/gops">gops</a>を参考にしています。</p>
+<figure>
+    <img src="/img/gosivy-arch.jpg" width="100%" height="auto"/> 
+</figure>
+
+<p>gosivyプロセスがエージェントに対してスクレイピングする形でメトリクスを収集しているため、gosivyプロセスを立ち上げない限り対象プロセスは何もしません。
+つまりエージェントは、チャートを閲覧している時のみランタイム統計を計算するようになっています。</p>
+<p>また、プロセス間はTCPソケットを介して通信しているため、ローカルホストもリモートホストも同じインターフェイスで通信することが可能です。</p>
+<h2 id="今後の展望">今後の展望</h2>
+<p>もともとこのツールは<a href="https://github.com/nakabonne/ali">ali</a>というツールのデバッグが捗るようにと作った背景があり、正直必要な機能は揃っています。
+しかし以前<a href="https://gophers.slack.com/">Gophers Slack</a>でstatsvizの作者と少し話したところ、可視化とメトリクス収集を分けていることに将来性を感じてくれているようでした。
+最近は<a href="https://github.com/go-echarts/go-echarts">go-echarts</a>などのパワフルな可視化ライブラリが続々と登場していて、せっかく可視化処理を分離しているので様々な場所にプロット出来るようにする予定です。</p>
+
+        </p>
+    </div>
+    
+
+    
+
+    <div class="page-footer">
+        
+        <hr class="footer-divider">
+        
+            <a class="tag" href="/tags/go">#Go</a>
+        
+      
+    </div>
+
 
         
 

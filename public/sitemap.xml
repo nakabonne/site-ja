@@ -3,22 +3,32 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://ja.nakabonne.dev/posts/jikon-2020/</loc>
-    <lastmod>2020-01-03T00:00:00+00:00</lastmod>
+    <loc>https://ja.nakabonne.dev/tags/go/</loc>
+    <lastmod>2020-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ja.nakabonne.dev/posts/gosivy/</loc>
+    <lastmod>2020-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ja.nakabonne.dev/posts/</loc>
-    <lastmod>2020-01-03T00:00:00+00:00</lastmod>
+    <lastmod>2020-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ja.nakabonne.dev/tags/</loc>
-    <lastmod>2020-01-03T00:00:00+00:00</lastmod>
+    <lastmod>2020-11-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ja.nakabonne.dev/</loc>
+    <lastmod>2020-11-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ja.nakabonne.dev/posts/jikon-2020/</loc>
     <lastmod>2020-01-03T00:00:00+00:00</lastmod>
   </url>
   
