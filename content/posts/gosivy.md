@@ -97,9 +97,9 @@ gosivyプロセスからアクセス可能なアドレスを引数として与�
 $ gosivy host.xz:9090
 ```
 
-## 仕組み
+## 可視化までの流れ
 
-全体のアーキテクチャは[gops](https://github.com/google/gops)を参考にしています。
+全体的なアーキテクチャは[gops](https://github.com/google/gops)を参考にしています。
 
 {{< figure src="/img/gosivy-arch.jpg" width="100%" height="auto">}}
 
@@ -110,4 +110,6 @@ gosivyプロセスがエージェントに対してスクレイピングする�
 
 
 ## 今後の展望
-[Gophers Slack](https://gophers.slack.com/)でstatsvizの作者と少し話し、可視化とメトリクス収集を分けていることに将来性を感じてくれているようでした。
+もともとこのツールは[ali](https://github.com/nakabonne/ali)というツールのデバッグが捗るようにと作った背景があり、正直必要な機能は揃っています。
+しかし以前[Gophers Slack](https://gophers.slack.com/)でstatsvizの作者と少し話したところ、可視化とメトリクス収集を分けていることに将来性を感じてくれているようでした。
+最近は[go-echarts](https://github.com/go-echarts/go-echarts)などのパワフルな可視化ライブラリが続々と登場していて、せっかく可視化処理を分離しているので様々な場所にプロット出来るようにする予定です。
