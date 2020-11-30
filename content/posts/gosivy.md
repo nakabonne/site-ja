@@ -4,6 +4,7 @@ description: ""
 date: 2020-11-01
 tags: ["Go"]
 draft: false
+images: ["/img/gosivy-screenshot.png"]
 ---
 
 本記事は [Go 2 Advent Calendar 2020](https://qiita.com/advent-calendar/2020/go2) の1日目の記事です。
