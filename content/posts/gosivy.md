@@ -1,7 +1,7 @@
 ---
 title: "Goプロセスのランタイム統計を可視化する"
 description: ""
-date: 2020-11-01
+date: 2020-12-01
 tags: ["Go"]
 draft: false
 images: ["/img/gosivy-screenshot.png"]
