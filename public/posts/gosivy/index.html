@@ -180,6 +180,9 @@ if (!doNotTrack) {
     <div>
         <p>
         <p>本記事は <a href="https://qiita.com/advent-calendar/2020/go2">Go 2 Advent Calendar 2020</a> の1日目の記事です。</p>
+<blockquote>
+<p>Click <a href="https://nakabonne.dev/posts/gosivy">here</a> for English version</p>
+</blockquote>
 <p>Goにはpprofをはじめとしたプロファイリングエコシステムが揃っています。しかしリソース使用量のトレンドをリアルタイムで監視したいだけのケースで手軽に扱えるツールが見つからなかったので、<a href="https://github.com/nakabonne/gosivy">gosivy</a>というシンプルなTUIツールを作りました。</p>
 <figure>
     <img src="/img/gosivy-demo.gif" width="100%" height="auto"/> 
@@ -195,7 +198,7 @@ if (!doNotTrack) {
 <li>WebベースのUIなのでブラウザが必須</li>
 </ul>
 <p>総じて、メトリクスを取りたい対象プロセスの負担が少し大きすぎるなと感じていました。</p>
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">1秒ごとのcpu使用率とっていると、案の定一番負荷が高いのは監視が動くタイミングだったりするわけで</p>&mdash; mackerel-plugin-kazeburo (@kazeburo) <a href="https://twitter.com/kazeburo/status/1322084832831184896?ref_src=twsrc%5Etfw">October 30, 2020</a></blockquote>
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">1秒ごとのcpu使用率とっていると、案の定一番負荷が高いのは監視が動くタイミングだったりするわけで</p>&mdash; スタンドの時間です&#8;! (@kazeburo) <a href="https://twitter.com/kazeburo/status/1322084832831184896?ref_src=twsrc%5Etfw">October 30, 2020</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <p>そこでstatsvizの手軽さを残しつつ、監視対象プロセスの負担をなるべく減らしたツールを作ることにしました。</p>
